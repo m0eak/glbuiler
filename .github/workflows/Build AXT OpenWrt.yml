@@ -84,7 +84,8 @@ jobs:
         cd openwrt
         cd scripts
         gcc -o mkhash mkhash.c
-        mkdir mkhash /workdir/openwrt/host/bin/
+        mkdir mkhash /workdir/openwrt/host
+        mkdir mkhash /workdir/openwrt/host/bin
         cp mkhash /workdir/openwrt/host/bin/
         cd ..
         # echo -e "$(nproc) thread compile"
