@@ -15,3 +15,5 @@
 # Modify Openwrt to AXT1800
 #sed -i 's/'OpenWrt'/'AXT1800'/g' package/base-files/files/bin/config_generate
 #./scripts/feeds install base-files
+mkdir -p /workdir/openwrt/host/bin/
+cc -O2 -o /workdir/openwrt/host/bin/mkhash /workdir/openwrt/scripts/mkhash.c
