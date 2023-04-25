@@ -81,6 +81,7 @@ jobs:
     - name: Compile the firmware
       id: compile
       run: |
+        cd openwrt
         make
         echo "::set-output name=status::success"
         grep '^CONFIG_VERSION.*axt1800.*=y' .config | sed -r 's/.*CONFIG_VERSION_(.*)=y/\1/' > DEVICE_NAME
