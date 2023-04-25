@@ -66,9 +66,9 @@ jobs:
 
     - name: Load custom configuration
       run: |
-        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
-        chmod +x $DIY_P2_SH
-        cd openwrt
+        # [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
+        # chmod +x $DIY_P2_SH
+        # cd openwrt
         # $GITHUB_WORKSPACE/$DIY_P2_SH
 
     - name: SSH connection to Actions
@@ -82,7 +82,7 @@ jobs:
       id: compile
       run: |
         cd openwrt
-        echo -e "$(nproc) thread compile"
+        # echo -e "$(nproc) thread compile"
         make -j1 V=s
         echo "::set-output name=status::success"
         grep '^CONFIG_VERSION.*axt1800.*=y' .config | sed -r 's/.*CONFIG_VERSION_(.*)=y/\1/' > DEVICE_NAME
