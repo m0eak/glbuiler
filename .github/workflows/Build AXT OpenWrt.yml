@@ -83,7 +83,8 @@ jobs:
       run: |
         cd openwrt
         # echo -e "$(nproc) thread compile"
-        make -j1 V=s
+        ./scripts/feeds install base-files
+        make
         echo "::set-output name=status::success"
         grep '^CONFIG_VERSION.*axt1800.*=y' .config | sed -r 's/.*CONFIG_VERSION_(.*)=y/\1/' > DEVICE_NAME
         [ -s DEVICE_NAME ] && echo "DEVICE_NAME=_$(cat DEVICE_NAME)" >> $GITHUB_ENV
