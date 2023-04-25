@@ -90,7 +90,6 @@ jobs:
         echo "FILE_DATE=_$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
         retries: 3
         continue-on-error: true
-        until: ${{ success() }}
         run: |
         make
         echo "::set-output name=status::success"
