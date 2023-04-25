@@ -35,6 +35,8 @@ env:
 jobs:
   build:
     runs-on: ubuntu-20.04
+    strategy:
+      fail-fast: true
 
     steps:
     - name: Checkout
