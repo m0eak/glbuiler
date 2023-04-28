@@ -15,6 +15,4 @@
 
 # Add a feed source
 #echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
-git clone https://github.com/immortalwrt/luci
-git clone https://github.com/kenzok8/small-package
 git clone https://github.com/kiddin9/openwrt-packages
