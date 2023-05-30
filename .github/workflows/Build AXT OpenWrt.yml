@@ -61,7 +61,7 @@ jobs:
     - name: Load custom feeds
       run: |
         chmod +x $DIY_P1_SH
-        cd openwrt/customer/source
+        cd openwrt/customer/ipk
         $GITHUB_WORKSPACE/$DIY_P1_SH
 
     - name: Load custom configuration
