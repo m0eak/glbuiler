@@ -137,7 +137,7 @@ jobs:
       id: tag
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       run: |
-        echo "release_tag=AXT1800$(date +"%Y.%m.%d-%H%M")" >> $GITHUB_OUTPUT
+        echo "release_tag=AXT1800R$(date +"%Y.%m.%d-%H%M")" >> $GITHUB_OUTPUT
         touch release.txt
         sed -n '/# Select customer package/,$p' ./openwrt/.config | grep -v '^#' | grep luci-app | grep -v INCLUDE | sed -r 's/CONFIG_PACKAGE_(.*)=y/\1/' >> release.txt
         [ $UPLOAD_COWTRANSFER = true ] && echo "🔗 [Cowtransfer](${{ steps.cowtransfer.outputs.url }})" >> release.txt
