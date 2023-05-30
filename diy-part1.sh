@@ -14,5 +14,5 @@
 #sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 
 # Add a feed source
-#echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
-git clone https://github.com/kiddin9/openwrt-packages
+# echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
+# wget --recursive --no-parent --no-clobber -nH --cut-dirs=1 -A .ipk https://op.supes.top/packages/arm_cortex-a7/
