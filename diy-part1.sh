@@ -16,3 +16,4 @@
 # Add a feed source
 # echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
 # wget --recursive --no-parent --no-clobber -nH --cut-dirs=1 -A .ipk https://op.supes.top/packages/arm_cortex-a7/
+wget -i packages.txt
