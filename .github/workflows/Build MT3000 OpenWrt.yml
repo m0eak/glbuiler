@@ -143,7 +143,7 @@ jobs:
       run: |
         echo "release_tag=$TYPE R$(date +"%Y.%m.%d-%H%M")" >> $GITHUB_OUTPUT
         touch release.txt
-        sed -n '/# Select customer package/,$p' ./openwrt/.config | grep -v '^#' | grep luci-app | grep -v INCLUDE | sed -r 's/CONFIG_PACKAGE_(.*)=y/\1/' >> release.txt
+        grep "^CONFIG_CUSTOMER_BUILDIN_PACKAGES" ./openwrt/.config | cut -d "=" -f 2- | tr -d '"' >> release.txt >> release.txt
         [ $UPLOAD_COWTRANSFER = true ] && echo "🔗 [Cowtransfer](${{ steps.cowtransfer.outputs.url }})" >> release.txt
         [ $UPLOAD_WETRANSFER = true ] && echo "🔗 [WeTransfer](${{ steps.wetransfer.outputs.url }})" >> release.txt
         echo "status=success" >> $GITHUB_OUTPUT
