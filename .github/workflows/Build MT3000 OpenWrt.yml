@@ -20,9 +20,10 @@ on:
         default: 'true'
 
 env:
+  TYPE: MT3000
   REPO_URL: https://github.com/gl-inet/glbuilder
   REPO_BRANCH: main
-  CONFIG_FILE: .config
+  CONFIG_FILE: ./config/mt3000.config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
   UPLOAD_BIN_DIR: true
@@ -140,7 +141,7 @@ jobs:
       id: tag
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       run: |
-        echo "release_tag=AXT1800R$(date +"%Y.%m.%d-%H%M")" >> $GITHUB_OUTPUT
+        echo "release_tag=$TYPE R$(date +"%Y.%m.%d-%H%M")" >> $GITHUB_OUTPUT
         touch release.txt
         sed -n '/# Select customer package/,$p' ./openwrt/.config | grep -v '^#' | grep luci-app | grep -v INCLUDE | sed -r 's/CONFIG_PACKAGE_(.*)=y/\1/' >> release.txt
         [ $UPLOAD_COWTRANSFER = true ] && echo "🔗 [Cowtransfer](${{ steps.cowtransfer.outputs.url }})" >> release.txt
