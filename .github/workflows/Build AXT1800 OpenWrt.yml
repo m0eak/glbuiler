@@ -66,6 +66,8 @@ jobs:
         cd openwrt/customer/ipk
         cp -r $GITHUB_WORKSPACE/packages.yml $GITHUB_WORKSPACE/openwrt/customer/ipk
         $GITHUB_WORKSPACE/$DIY_P1_SH
+        cd $GITHUB_WORKSPACE/openwrt/customer/source
+        git clone https://github.com/kiddin9/openwrt-packages
 
     - name: Load custom configuration
       run: |
