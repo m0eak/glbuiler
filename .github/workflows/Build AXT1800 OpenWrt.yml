@@ -68,6 +68,8 @@ jobs:
         $GITHUB_WORKSPACE/$DIY_P1_SH
         cd $GITHUB_WORKSPACE/openwrt/customer/source
         git clone https://github.com/kiddin9/openwrt-packages
+        cd $GITHUB_WORKSPACE/openwrt/scripts
+        wget https://raw.githubusercontent.com/openwrt/openwrt/main/scripts/diffconfig.sh
 
     - name: Load custom configuration
       run: |
