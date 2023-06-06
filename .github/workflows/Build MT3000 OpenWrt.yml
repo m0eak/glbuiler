@@ -67,6 +67,13 @@ jobs:
         cd openwrt/customer/ipk
         cp -r $GITHUB_WORKSPACE/packages.yml $GITHUB_WORKSPACE/openwrt/customer/ipk
         $GITHUB_WORKSPACE/$DIY_P1_SH
+        cd $GITHUB_WORKSPACE/openwrt/customer/source
+        git clone https://github.com/kiddin9/openwrt-packages
+        cd $GITHUB_WORKSPACE/openwrt/scripts
+        wget https://raw.githubusercontent.com/openwrt/openwrt/main/scripts/diffconfig.sh
+        wget https://raw.githubusercontent.com/openwrt/openwrt/main/scripts/kconfig.pl
+        chmod +x diffconfig.sh
+        chmod +x kconfig.pl
 
     - name: Load custom configuration
       run: |
@@ -74,6 +81,7 @@ jobs:
         chmod +x $DIY_P2_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
+        make defconfig
 
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
