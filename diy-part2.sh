@@ -17,3 +17,4 @@
 #./scripts/feeds install base-files
 #mkdir -p /workdir/openwrt/host/bin/
 #cc -O2 -o /workdir/openwrt/host/bin/mkhash /workdir/openwrt/scripts/mkhash.c
+echo "src/gz kenzok8 https://github.com/kenzok8/small-package.git" >> board/mt3000/*/feeds.conf.default
